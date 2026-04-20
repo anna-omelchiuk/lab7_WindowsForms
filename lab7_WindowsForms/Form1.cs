@@ -22,20 +22,20 @@ namespace lab7_WindowsForms
             txtSpeed.Visible = false;
             txtAccel.Visible = false;
 
-            UpdateFormulas();
+            SetFormulas();
             
         }
 
-        private void UpdateFormulas()
+        private void SetFormulas()
         {
             int a = hScrollBar1.Value;
             int b = hScrollBar2.Value;
 
             label1.Text = $"x={b}cos({a}t)";
-            label2.Text = $"y={b}sin({a}t)";
+            label2.Text = $"y={b}sin({a}t)"; 
         }
 
-        private void UpdateValues()
+        private void SetValues()
         {
             int a = hScrollBar1.Value;
             int b = hScrollBar2.Value;
@@ -52,13 +52,13 @@ namespace lab7_WindowsForms
         private void buttonSpeed_Click(object sender, EventArgs e)
         {
             txtSpeed.Visible = !txtSpeed.Visible;
-            UpdateValues();
+            SetValues();
         }
 
         private void buttonAccel_Click(object sender, EventArgs e)
         {
             txtAccel.Visible = !txtAccel.Visible;
-            UpdateValues();
+            SetValues();
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
@@ -66,16 +66,17 @@ namespace lab7_WindowsForms
             Application.Exit();
         }
 
-        private void hScrollBar2_ValueChanged(object sender, EventArgs e)
-        {
-            UpdateFormulas();
-            UpdateValues();
-        }
 
         private void hScrollBar1_ValueChanged(object sender, EventArgs e)
         {
-            UpdateFormulas();
-            UpdateValues();
+            SetFormulas();
+            SetValues();
         }
+        private void hScrollBar2_ValueChanged(object sender, EventArgs e)
+        {
+            SetFormulas();
+            SetValues();
+        }
+
     }
 }
